@@ -1,0 +1,27 @@
+<h2>Find Matching Donors</h2>
+<form method="get">
+    <label for="hla_a">HLA-A</label>
+    <input type="text" name="hla_a" required><br>
+
+    <label for="hla_b">HLA-B</label>
+    <input type="text" name="hla_b" required><br>
+
+    <label for="hla_c">HLA-C</label>
+    <input type="text" name="hla_c" required><br>
+
+    <label for="hla_drb1">HLA-DRB1</label>
+    <input type="text" name="hla_drb1" required><br>
+
+    <button type="submit">Find Match</button>
+</form>
+
+{% if matches %}
+    <h3>Matches:</h3>
+    <ul>
+        {% for match in matches %}
+            <li>{{ match.first_name }} {{ match.last_name }} - {{ match.email }}</li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No matches found.</p>
+{% endif %}
